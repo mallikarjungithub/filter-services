@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toadyTopic">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="firstTask">
+            <!-- {{name|uppercase}} -->
+            <!-- {{name|lowercase}} -->
+            <!-- {{noteBook|currency}} -->
+            <ul>
+                <li ng-repeat="_data in data|orderBy:'age'">
+                    {{_data.name}}
+                    {{_data.age}}
+                </li>
+            </ul>
+            <input type="text" ng-model="tableFilterData" />
+            <table border="1">
+                <tr>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>state</th>
+                </tr>
+                <tr ng-repeat="_data in data|filter :tableFilterData">
+                    <td>{{_data.name}}</td>
+                    <td>{{_data.age}}</td>
+                    <td>{{_data.state}}</td>
+                </tr>
+            </table>
+            <input type="text" ng-model="dataAnimals">
+            <ul>
+                <li ng-repeat="_animals in animals | filter:dataAnimals">
+                    {{_animals}}
+                </li>
+            </ul>
+            {{myUrl}}
+        </div>
+
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>
